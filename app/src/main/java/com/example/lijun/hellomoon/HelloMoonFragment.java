@@ -22,7 +22,22 @@ public class HelloMoonFragment extends Fragment {
         View  view = inflater.inflate(R.layout.fragment_hello_moon, parent);
 
         mPlayButton = (Button) view.findViewById(R.id.hellomoon_playButton);
+        mPlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mAudioPlayer != null)
+                    mAudioPlayer.play(getActivity());
+            }
+        });
+
         mStopButton = (Button) view.findViewById(R.id.hellomoon_stopButton);
+        mStopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mAudioPlayer != null)
+                    mAudioPlayer.stop();
+            }
+        });
 
         mAudioPlayer = new AudioPlayer();
 
